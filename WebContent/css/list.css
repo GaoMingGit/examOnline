@@ -1,0 +1,61 @@
+
+tr:hover {
+	background:yellow;
+	}
+.find {
+	position: absolute;
+	top: 15px;
+	left: -30px;
+}
+
+.find button {
+	height: 40px;
+	padding: 10px;
+	color: #fff;
+	cursor: pointer;
+	background-color: #999;
+	border-radius: 8px;
+	margin-right: 10px;
+	transition: all 0.3s;
+}
+.find button:hover {
+	transform: scale(1.08);
+}
+
+.table {
+	position: absolute;
+	top: 0px;
+	height: 90%;
+	width: 100%;
+}
+.studenttable {
+	height: 515px;
+	border: 2px;
+	border-right: 0;
+}
+.studenttable_hd {
+	height: 40px;
+	background-color: #0866c6;
+	padding: 10px 20px;
+}
+.studenttable table {
+	width: 96%;
+}
+.studenttable tr {
+	height: 12px;
+	line-height: 30px;
+	transition: all 0.3s;
+}
+.studenttable td {
+	padding: 0px;
+	border: 1px solid #ccc;
+	border-right: 0;
+	
+}
+thead {
+	background-color: #555;
+	color: #fff;
+}
+thead td {
+	border: 0!important;
+}

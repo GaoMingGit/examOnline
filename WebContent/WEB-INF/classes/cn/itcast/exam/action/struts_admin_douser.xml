@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 配置struts中单个表单上传文件的大小 -->
+	<constant name="struts.multipart.maxSize" value="5242880"/>
+	<package name="exam11" extends="struts-default" namespace="/">
+	
+	<!-- 定义拦截器 -->
+		<interceptors>
+			<interceptor name="admin_PriviledgeInterceptor" class="cn.itcast.exam.interceptor.Admin_PriviledgeInterceptor"/>
+		</interceptors>
+		<global-results>
+			<result name="login" type="redirect">/adminPage/adminLogin.jsp</result>
+		</global-results>
+		
+		
+		<action name="adminDouser_*" class="adminActionDouser" method="{1}">
+			<result name="toUserList" type="redirect">/adminPage/userlist.jsp</result>
+		
+		<interceptor-ref name="admin_PriviledgeInterceptor">
+			<!-- 拦截器对 >这些方法不进行拦截  excludeMethods-->
+			<!-- 拦截器对 >这些方法进行拦截  includeMethods-->
+			<param name="includeMethods">findAllUser</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		
+		
+		<!-- 配置上传文件时候出错的Input视图 -->
+			<result name="input">/demo/upload.jsp</result>
+			<!-- 配置文件上传的相关拦截器 -->
+			<interceptor-ref name="defaultStack">
+				<!-- 单个表单项上传的大小  2 M-->
+				<param name="fileUpload.maximumSize">2097152</param>
+				<!-- 允许文件上传的类型  -->
+				<param name="fileUpload.allowedExtensions">.jpg</param>
+			</interceptor-ref>
+		</action>
+	</package>
+
+</struts>

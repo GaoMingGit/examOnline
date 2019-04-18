@@ -1,0 +1,69 @@
+@CHARSET "UTF-8";
+.timu{
+	font-size: 15px;
+	color: blue;
+	margin: 3px;
+}
+input {
+	margin-left: 30px;
+	margin-top: -5px;
+}
+a:link {
+font-size: 20px;
+color: #000000;
+text-decoration: none;
+}
+a:visited {
+font-size: 20px;
+color: #000000;
+text-decoration: none;
+}
+a:hover {
+font-size: 20px;
+color: #000000;
+text-decoration: none;
+} 
+.content1{
+	margin-top:10px;
+	overflow: hidden;
+	background: #fdf9ff;
+	height: 300px;
+	/* overflow-y :auto; */
+	width: 100%;
+	
+}
+li{
+	float: left;
+	list-style: none;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+li{ text-align: center; 
+		width: 35px; 
+		height: 35px;
+ 		background-color: #ffffff; 
+ 		border-radius: 50%; 
+		font-size: 28px;
+		color: blue;
+} 
+p{
+	font-size: 25px;
+}
+table {
+	height: 300px;
+}
+.button {
+	padding-left: 0!important;
+	margin-left: 50px;
+	height: 50px;
+	width: 150px!important;
+	background-color: #fff;
+	color: #0866c6!important;
+	cursor: pointer;
+	border: 1px solid #0866c6!important;
+}
+.button:hover {
+	background-color: #0866c6;
+	color: #fff!important;
+	transform: scale(1.1);
+}

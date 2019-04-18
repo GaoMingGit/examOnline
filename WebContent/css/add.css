@@ -1,0 +1,54 @@
+
+.content {
+	position: absolute;
+	top: 140px;
+	left: 350px;
+	height: 585px;
+	width: 75%;
+}
+.add {
+	height: 500px;
+	border: 2px solid #0866c6;
+	border-right: 0;
+	width: 96%;
+}
+.add_hd {
+	height: 40px;
+	width:100%;
+	background-color: #555;
+	padding: 10px 10px;
+}
+.add_hd span {
+	color: #fff;
+}
+table {
+	margin: 10px 0px;
+	width: 100%;
+}
+tr td:nth-child(2) {
+	height: 35px;
+	width: 200px;
+}
+tr td:nth-child(1) {
+	width: 20px;
+}
+
+select {
+	width: 350px;
+	height: 50px;
+}
+.add .button {
+	padding-left: 0!important;
+	margin-left: 50px;
+	height: 50px;
+	width: 150px!important;
+	background-color: #fff;
+	color: #0866c6!important;
+	cursor: pointer;
+	border: 1px solid #0866c6!important;
+}
+.button:hover {
+	background-color: #81dafb;
+	color: #fff!important;
+	transform: scale(1.1);
+}

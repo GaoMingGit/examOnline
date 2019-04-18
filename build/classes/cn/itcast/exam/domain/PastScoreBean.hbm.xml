@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.itcast.exam.domain.PastScoreBean" table="pastscore">
+		<id name="pid" column="pid">
+			<generator class="native"></generator>
+		</id>
+		<property name="score" column="score"></property>
+		<property name="righttotal" column="righttotal"></property>
+		<property name="wrongtotal" column="wrongtotal"></property>
+		<property name="examtime" column="examtime"></property>
+		<!-- 错题集所属的用户 -->
+		<many-to-one name="user" class="cn.itcast.exam.domain.User" column="userid"></many-to-one>
+	</class>
+</hibernate-mapping>

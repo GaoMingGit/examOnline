@@ -1,0 +1,166 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; /*css3閻╂帒鐡欏Ο鈥崇��*/
+}
+li {
+	list-style: none;
+}
+.centerdiv{
+	margin: 0 auto;
+	width: 90%;
+}
+a {
+	text-decoration: none;
+	color: #050505;
+}
+img {
+	border: 0;
+	vertical-align: middle; /*閺傚洤鐡ч崶鍓у閸ㄥ倻娲跨仦鍛厬*/
+}
+input,button {
+	border: 0;
+	outline: none; /*濞撳懘娅庢Η鐘崇垼閻愮懓鍤弮鎯板殰鐢箑顦绘潏瑙勵攱閺嶅嘲绱�*/
+	padding: 0;
+	margin: 0;
+}
+i {
+	font-style: normal;
+}
+/*閸欏奔鍚夐崗鍐濞撳懘娅庡ù顔煎З*/
+.clearfix:before,.clearfix:after { 
+  content:"";
+  display:table;  /* 鏉╂瑥褰炵拠婵嗗讲娴犮儱鍤崣鎱婩C BFC閸欘垯浜掑〒鍛存珟濞搭喖濮� */
+}
+.clearfix:after {
+ clear:both;
+}
+.clearfix {
+  *zoom:1;
+}
+/*閸ョ偓鐖ｇ�涙ぞ缍�*/
+@font-face {
+			font-family: 'icomoon';
+			src: url('../fonts/icomoon.eot?7kkyc2');
+			src: url('../fonts/icomoon.eot?7kkyc2#iefix') format('embedded-opentype'),
+			     url('../fonts/icomoon.ttf?7kkyc2') format('truetype'),
+			     url('../fonts/icomoon.woff?7kkyc2') format('woff'),
+			     url('../fonts/icomoon.svg?7kkyc2#icoomon') format('svg');
+			font-size: normal;
+			font-weight: normal;
+		}
+/*妞ょ敻娼版径鎾劥*/
+header {
+	width:90%;
+	margin:0 auto;
+	height: 100px;
+	background-color: #0866c6;
+}
+h1 {
+	margin: 30px 0 30px 35px;
+	float: left;
+	color: #fff;
+	font-size: 25px;
+}
+.personal {
+	float: right;
+	height: 100px;
+	width: 300px;
+	border-left: 1px solid #5aa4e1;
+	padding: 10px 0 10px 30px;
+	color: #fff;
+}
+.personal img {
+	width: 80px;
+	height: 80px;
+	border-radius: 8px;
+	transition: all 0.3s;
+}
+.personal img:hover {
+	transform: scale(1.03);
+}
+.inner {
+	margin-right: 40px;
+	line-height: 35px;
+	float: right;
+}
+.personal a {
+	color: #fff;
+	transition: all 0.3s;
+}
+.personal a:hover {
+	font-weight: 700px;
+	font-size: 18px;
+}
+/*页面左侧*/
+.slider {
+	width: 270px;
+	height: 620px;
+	background-color: #282828;
+}
+.slider p {
+	color: #999;
+	padding: 10px 10px;
+}
+.slider dt {
+	height: 50px;
+	line-height: 50px;
+	color: #999;
+	font-size: 16px;
+	font-weight: 700px;
+	padding-left: 10px;
+	cursor: pointer;
+	position: relative;
+}
+.slider dt:hover {
+	background-color: #0866c6;
+	color: #fff!important;
+}
+.slider  span {
+	font-family: 'icomoon';
+	padding-right: 10px;
+}
+.slider dt i {
+	font-family: 'icomoon';
+	position: absolute;
+	right: 20px;
+}
+.slider dd {
+	height: 50px;
+	line-height: 50px;
+	padding-left: 10px;
+	background-color: #ebeff2;
+	color: #8d8986;
+}
+.slider dd span {
+	color: #999;
+}
+.slider dd a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.dt_action {
+	background-color: #0866c6;
+	color: #fff!important;
+}
+.slider dd:hover {
+	background-color: #90bef1;
+}
+/*韫囶偊锟界喎顕遍懜顏呯埉闁劌鍨�*/
+.shortcut {
+	position: absolute;
+	top: 100px;
+	left: 350px;
+	height: 40px;
+	width: 72%;
+	line-height: 40px;
+	background-color: #ddd;
+}
+s {
+	font-family: 'icomoon';
+	color: #0866c6;
+	margin-left: 20px;
+	font-size: 18px;
+
+}

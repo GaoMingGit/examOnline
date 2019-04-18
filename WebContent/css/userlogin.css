@@ -1,0 +1,46 @@
+
+h2{
+	margin: 100px auto;
+}
+#main{
+	display: block;  
+    content: "";  
+	margin: -80px auto;
+	width: 50%;
+	height: 500px;
+	background: #fdf9ff;
+	border-radius: 30px/10px;
+    box-shadow: 3px 8px 10px rgba(0,0,0,0.8);
+}
+.button {
+	padding-left: 0!important;
+	height: 50px;
+	width: 150px!important;
+	background-color: #fff;
+	color: #0866c6!important;
+	cursor: pointer;
+	border: 1px solid #0866c6!important;
+}
+.button:hover {
+	background-color: #81dafb;
+	color: #fff!important;
+	transform: scale(1.1);
+}
+table {
+	width: 100%;
+}
+a:link {
+font-size: 20px;
+color: blue;
+text-decoration: none;
+}
+a:visited {
+font-size: 20px;
+color: blue;
+text-decoration: none;
+}
+a:hover {
+font-size: 20px;
+color: blue;
+text-decoration: none;
+} 

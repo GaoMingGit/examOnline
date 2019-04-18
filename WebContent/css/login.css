@@ -1,0 +1,58 @@
+body {
+	background-color: #0866c6;
+}
+
+.loginbox {
+	height: 500px;
+	width: 450px;
+	margin: 200px auto;
+	text-align: center;
+}
+.loginbox h1 {
+	font-size: 35px;
+	color: #fff;
+	margin: 0 0 30px 150px;
+}
+.text {
+	width: 350px;
+	height: 50px;
+	padding-left: 20px;
+	transition: all 0.3s;
+	color: #999;
+	font-size: 16px;
+	margin-top: 20px;
+}
+input:hover {
+	transform: scale(1.04);
+}
+.role {
+	width: 350px;
+	height: 50px;
+	line-height: 50px;
+	margin: 15px auto;
+}
+.radio {
+	height: 25px;
+	width: 25px;
+	margin-left: 20px;
+	margin-right: 5px;
+	vertical-align: middle; /*文字单选按钮垂直居中对齐*/
+}
+span {
+	color: #fff;
+	font-size: 16px;
+}
+input:last-child {
+	width: 350px;
+	height: 50px;
+	transition: all 0.3s;
+	background-color: #fff;
+	color: #999;
+	font-size: 16px;
+	font-weight: 700;
+	cursor: pointer;
+}
+input:last-child:hover {
+	background-color: #96b8db;
+	color: #fff;
+}

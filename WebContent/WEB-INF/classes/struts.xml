@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- Struts2为了管理Action的配置，通过包进行管理。 -->
+	<!-- 配置Struts2的包 ================ -->
+	<constant name="struts.action.extension" value="action"/>
+	<include file="cn/itcast/exam/action/struts_admin.xml"></include>
+	<include file="cn/itcast/exam/action/struts_admin_douser.xml"></include>
+	<include file="cn/itcast/exam/action/struts_user.xml"></include>
+	<include file="cn/itcast/exam/action/struts_exam.xml"></include>
+</struts>

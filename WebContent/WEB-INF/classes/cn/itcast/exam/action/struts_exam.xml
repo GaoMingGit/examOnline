@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 配置struts中单个表单上传文件的大小 -->
+	<package name="exam3" extends="struts-default" namespace="/">
+	
+		<!-- 定义拦截器 -->
+		<interceptors>
+			<interceptor name="priviledgeInterceptor" class="cn.itcast.exam.interceptor.PriviledgeInterceptor"/>
+		</interceptors>
+		<global-results>
+			<result name="login" type="redirect">/user/userlogin.jsp</result>
+		</global-results>
+		
+		
+		<action name="exam_*" class="examAction" method="{1}">
+		
+			<result name="toExercise" type="redirect">/user/exercise.jsp</result>	
+			<result name="toExam"  type="redirect">/user/exam.jsp</result>
+			<result name="toExamPageUI">/user/user_toexam_page.jsp</result>
+			<result name="toshow" type="redirect">/user/show.jsp</result>
+			<result name="toHistory" type="redirect">/user/historypage.jsp</result>
+			<result name="toLookWrongAction" type="redirectAction">user_lookWrong.action</result>
+			<result name="toLookWrongQuestion" type="redirect">/user/lookWrongQuestion.jsp</result>
+			<!-- 引入拦截器 -->
+			<interceptor-ref name="priviledgeInterceptor">
+			<!-- 拦截器对 keMuExam .... >这些方法进行拦截 -->
+				<param name="includeMethods">keMuExam,toExamPageUI,lookPastScore,lookWrongQuestion,getUserMessage,toUpdateUserUI</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+			
+		</action>
+	</package>
+
+</struts>

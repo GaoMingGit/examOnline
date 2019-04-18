@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.itcast.exam.domain.QuestionBean" table="questions">
+		<id name="qid" column="qid">
+			<generator class="native"></generator>
+		</id>
+		<property name="question" column="question"></property>
+		<property name="select_a" column="select_a"></property>
+		<property name="select_b" column="select_b"></property>
+		<property name="select_c" column="select_c"></property>
+		<property name="select_d" column="select_d"></property>
+		<property name="imagepath" column="imagepath"></property>
+		<property name="answer" column="answer"></property>
+		<property name="descc" column="descc"></property>
+		<property name="cid" column="cid"></property>
+		<property name="addTime" column="addTime"></property>
+		
+		<set name="userSet" table="wrongquestion">
+			<key column="qid"></key>
+			<many-to-many class="cn.itcast.exam.domain.User" column="uid"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<!-- 配置c3p0的数据库连接池====引入外部文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+	
+	<!-- 配置c3p0 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<!-- 连接数据库的参数 -->
+		<property name="driverClass" value="${jdbc.driverclass}"></property>
+		<property name="jdbcUrl" value="${jdbc.jdbcurl}"></property>
+		<property name="user" value="${jdbc.user}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean>
+	
+	
+	<!-- Spring整合Hibernate -->
+	<!-- 引入Hibernate的配置的信息=============== -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<!-- 引入hibernate的配置文件 -->
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 注入连接池 -->
+		<!-- <property name="dataSource" ref="dataSource"></property>
+		配置hibernate核心配置文件的其他属性
+		<property name="hibernateProperties">
+			<props>
+				数据库方言
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				是否打印数据库语句
+				<prop key="hibernate.show_sql">true</prop>
+				是否格式化数据库操作语句
+				<prop key="hibernate.format_sql">true</prop>
+				是否自动建表
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+		设置映射文件
+		<property name="mappingResources">
+			<list>
+				<value>cn/itcast/exam/domain/QuestionBean.hbm.xml</value>
+			</list>
+		</property> -->
+	</bean>
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- 配置adminAction -->
+	<bean id="adminAction" class="cn.itcast.exam.action.AdminAction" scope="prototype">
+		<property name="adminService" ref="adminService"></property>
+	</bean>
+	<bean id="adminService" class="cn.itcast.exam.service.impl.AdminServiceImpl">
+		<property name="adminDao" ref="adminDao"></property>
+	</bean>
+	<bean id="adminDao" class="cn.itcast.exam.dao.impl.AdmindaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 配置userAction -->
+	<bean id="userAction" class="cn.itcast.exam.action.UserAction" scope="prototype">
+		<property name="userService" ref="userService"></property>
+	</bean>
+	<bean id="userService" class="cn.itcast.exam.service.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	<bean id="userDao" class="cn.itcast.exam.dao.impl.UserdaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 配置examAction -->
+	<bean id="examAction" class="cn.itcast.exam.action.ExamAction" scope="prototype">
+		<property name="examService" ref="examService"></property>
+	</bean>
+	<bean id="examService" class="cn.itcast.exam.service.impl.ExamServiceImpl">
+		<property name="examDao" ref="examDao"></property>
+	</bean>
+	<bean id="examDao" class="cn.itcast.exam.dao.impl.ExamdaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 配置adminAction_douser -->
+	<bean id="adminActionDouser" class="cn.itcast.exam.action.AdminAction_doUser" scope="prototype">
+		<property name="adminServiceDouser" ref="adminServiceDouser"></property>
+	</bean>
+	<bean id="adminServiceDouser" class="cn.itcast.exam.service.impl.AdminServiceDouserImpl">
+		<property name="adminDaoDouser" ref="adminDaoDouser"></property>
+	</bean>
+	<bean id="adminDaoDouser" class="cn.itcast.exam.dao.impl.AdmindaoDouserImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+	<!-- 开启注解事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>

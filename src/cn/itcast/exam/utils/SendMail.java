@@ -25,35 +25,35 @@ private User user;
 		Properties prop = new Properties();
 		prop.setProperty("mail.smtp.host", "smtp.qq.com");
 		prop.setProperty("mail.smtp.port", "465");
-		prop.setProperty("mail.smtp.auth", "true");// ÊÇ·ñ¿ªÆôÈ¨ÏŞ¿ØÖÆ
-		prop.setProperty("mail.transport", "smtp");// ·¢ËÍµÄĞ­ÒéÊÇ¼òµ¥µÄÓÊ¼ş´«ÊäĞ­Òé
-		prop.setProperty("mail.debug", "true");// true ´òÓ¡ĞÅÏ¢µ½¿ØÖÆÌ¨
+		prop.setProperty("mail.smtp.auth", "true");// æ˜¯å¦å¼€å¯æƒé™æ§åˆ¶
+		prop.setProperty("mail.transport", "smtp");// å‘é€çš„åè®®æ˜¯ç®€å•çš„é‚®ä»¶ä¼ è¾“åè®®
+		prop.setProperty("mail.debug", "true");// true æ‰“å°ä¿¡æ¯åˆ°æ§åˆ¶å°
 		prop.setProperty("mail.smtp.ssl.enable", "true");
 
-		// ´´½¨ÑéÖ¤Æ÷
+		// åˆ›å»ºéªŒè¯å™¨
 		Authenticator auth = new Authenticator() {
 			public PasswordAuthentication getPasswordAuthentication() {
-				// ÉèÖÃ·¢ËÍÈËµÄÕÊºÅºÍÃÜÂë(ÊÚÈ¨ÃÜÂë)
-				// ×¢Òâ·¢ËÍÕßµÄqq±ØĞëÈ¥QQÓÊÏä¿ªÍ¨È¨ÏŞ
+				// è®¾ç½®å‘é€äººçš„å¸å·å’Œå¯†ç (æˆæƒå¯†ç )
+				// æ³¨æ„å‘é€è€…çš„qqå¿…é¡»å»QQé‚®ç®±å¼€é€šæƒé™
 				return new PasswordAuthentication("1585168893@qq.com","zevjmjkqdthkhhch");
 			}
 		};
 		Session session = Session.getInstance(prop,auth);
 		Message message = createMail(session,user);
-		//·¢ËÍÓÊ¼ş
+		//å‘é€é‚®ä»¶
 		Transport.send(message,message.getAllRecipients());
 	}
-	//´´½¨ÓÊ¼ş
+	//åˆ›å»ºé‚®ä»¶
 	private Message createMail(Session session, User user) throws MessagingException {
 		Message message = new MimeMessage(session);
 		message.setFrom(new InternetAddress("1585168893@qq.com"));
 		message.setRecipient(Message.RecipientType.TO, new InternetAddress(user.getEmail()));
-		message.setSubject("¼¤»îÕËºÅµÄ¼¤»îÁ´½Ó");
-//		//¶¨Òå¼¤»îÂë
+		message.setSubject("æ¿€æ´»è´¦å·çš„æ¿€æ´»é“¾æ¥");
+//		//å®šä¹‰æ¿€æ´»ç 
 //		String uuid = UUID.randomUUID().toString().replace("-", "");
-		//ÉèÖÃ¼¤»îÁ´½Ó
-		String url = "http://192.168.10.59:8080//examOnline/user_active.action?uuidcode="+user.getUuidcode();
-		String content = "<h1>À´×Ô¡¾Ğ¡³µ¼İÕÕÎÄ¿ÆÔÚÏßÄ£ÄâÀíÂÛ¿¼ÊÔÍøÕ¾¡¿µÄ¼¤»îÕËºÅÁ´½Ó:ÄúÒÑ¾­³É¹¦×¢²áÕËºÅ£¬µã»÷ÏÂÃæÁ´½Ó<a href='"+url+"'>"+url+"</a>½øĞĞ¼¤»îÕËºÅ</h1>";
+		//è®¾ç½®æ¿€æ´»é“¾æ¥
+		String url = "http://gming.qicp.vip//examOnline/user_active.action?uuidcode="+user.getUuidcode();
+		String content = "<h1>æ¥è‡ªã€å°è½¦é©¾ç…§æ–‡ç§‘åœ¨çº¿æ¨¡æ‹Ÿç†è®ºè€ƒè¯•ç½‘ç«™ã€‘çš„æ¿€æ´»è´¦å·é“¾æ¥:æ‚¨å·²ç»æˆåŠŸæ³¨å†Œè´¦å·ï¼Œç‚¹å‡»ä¸‹é¢é“¾æ¥<a href='"+url+"'>"+url+"</a>è¿›è¡Œæ¿€æ´»è´¦å·</h1>";
 		System.out.println(content);
 		message.setContent(content,"text/html;charset=UTF-8");
 		message.saveChanges();
